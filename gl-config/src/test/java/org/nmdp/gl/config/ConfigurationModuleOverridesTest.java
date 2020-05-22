@@ -32,8 +32,9 @@ import java.util.Map;
 
 import com.google.common.collect.ImmutableMap;
 
+import org.junit.Test;
 import org.junit.runner.RunWith;
-
+import org.powermock.core.classloader.annotations.PowerMockIgnore;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 
 import org.powermock.modules.junit4.PowerMockRunner;
@@ -43,6 +44,8 @@ import org.powermock.modules.junit4.PowerMockRunner;
  */
 @RunWith(PowerMockRunner.class)
 @PrepareForTest({System.class})
+@PowerMockIgnore({ "javax.management.", "com.sun.org.apache.xerces.", "javax.xml.", "org.xml.", "org.w3c.dom.",
+		"com.sun.org.apache.xalan.", "javax.activation.*" })
 public final class ConfigurationModuleOverridesTest {
     private Map<String, String> environmentVariables = ImmutableMap.of("org_nmdp_gl_config_Property", "overridden-value");
 
@@ -55,6 +58,11 @@ public final class ConfigurationModuleOverridesTest {
         protected void bindConfigurations() {
             bindPropertiesWithOverrides("/org/nmdp/gl/config/property.properties");
         }
+    }
+    
+    @Test
+    public void test() {
+    	
     }
 
     /*

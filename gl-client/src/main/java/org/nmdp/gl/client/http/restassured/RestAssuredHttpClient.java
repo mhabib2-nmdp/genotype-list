@@ -31,8 +31,10 @@ import org.nmdp.gl.client.http.HttpClientUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.jayway.restassured.RestAssured;
-import com.jayway.restassured.response.Response;
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+
 
 /**
  * Implementation of HttpClient based on RestAssured.
